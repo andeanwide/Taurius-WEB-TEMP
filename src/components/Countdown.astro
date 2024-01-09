@@ -1,0 +1,59 @@
+<div
+  id="countdown"
+  class="flex flex-col items-center justify-center h-screen bg-cover bg-center"
+>
+  <div
+    class="flex flex-col justify-center items-center w-2/3 h-2/3 p-6 text-center border-2 border-white/10 bg-gradient-to-br from-white/25 to-white/0 rounded-3xl shadow-xl"
+  >
+    <img
+      src="/assets/Taurius-built.png"
+      alt="Page in Building"
+      class="mb-4 w-32 md:w-80 h-32 md:h-80 mx-auto"
+    />
+    <div
+      id="timer"
+      class="grid grid-cols-1 md:grid-cols-4 gap-2 text-lg md:text-4xl text-stone-100"
+    >
+    </div>
+  </div>
+</div>
+
+<script>
+  function calculateTimeLeft() {
+    let year = new Date().getFullYear();
+    const difference = +new Date(`${year}-03-01T00:00:00`) - +new Date();
+    let timeLeft = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+
+    return timeLeft;
+  }
+
+  function updateCountdown() {
+    const countdownElement = document.getElementById("timer");
+    if (countdownElement) {
+      const timeLeft = calculateTimeLeft();
+
+      countdownElement.innerHTML = `
+          <span>${timeLeft.days} Dias</span>
+          <span>${timeLeft.hours} Horas</span>
+          <span>${timeLeft.minutes} Minutos</span>
+          <span>${timeLeft.seconds} Segundos</span>
+        `;
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
+</script>
