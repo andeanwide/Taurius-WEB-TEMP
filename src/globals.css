@@ -1,0 +1,35 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(45deg,
+            rgb(var(--accent)),
+            rgb(var(--accent-light)) 30%,
+            white 60%);
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    background-image: linear-gradient(90deg, rgba(189, 36, 223, 0.502) 0%, rgba(45, 106, 222, 0.5) 97.15%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+code {
+    font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+}
