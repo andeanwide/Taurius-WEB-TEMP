@@ -33,3 +33,21 @@ code {
         Courier New,
         monospace;
 }
+
+h1 {
+    --color-uno: rgb(45, 106, 222);
+    --color-dos: rgb(189, 36, 223);
+    --tamano-fondo: 400%;
+    font-size: clamp(3rem, 25vmin, 8rem);
+    background: linear-gradient(90deg, var(--color-uno), var(--color-dos), var(--color-uno)) 0 0 / var(--tamano-fondo) 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: mover-fondo 8s infinite linear;
+  }
+  
+  @keyframes mover-fondo {
+    to {
+      background-position: var(--tamano-fondo) 0;
+    }
+}
